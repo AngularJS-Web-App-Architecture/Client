@@ -1,0 +1,10 @@
+﻿.control-label {
+    font-size: 1.1em;
+}
+
+footer {
+	width:100vw;
+	position:absolute;
+	bottom:10px;
+	left:0;
+}
