@@ -1,0 +1,44 @@
+﻿<div class="col-lg-offset-2 col-lg-8">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Upcoming Events</h3>
+        </div>
+        <div class="panel-body">
+            <!-- Search bar -->
+            <div class="searchField has-success jumbotron text-center">
+                <p>
+                    <h1>The <strong>Ultimate</strong> searchbar. </h1>
+                    You can search by any criteria (Host name, Country name, Description, Start date or End date).<br />
+                </p>
+                <input ng-model="searchQuery" type="text" style="width:30%;" />
+            </div>
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th><a ng-click="vm.filterType = 'Host'; reverse = !reverse" class="cursor-pointer">Host</a></th>
+                        <th><a ng-click="vm.filterType = 'Country.Name'; reverse = !reverse" class="cursor-pointer">Country</a></th>
+                        <th class="text-center"><a ng-click="vm.filterType = 'Description'; reverse = !reverse" class="cursor-pointer">Description</a></th>
+                        <th><a ng-click="vm.filterType = 'StartDate'; reverse = !reverse" class="cursor-pointer">Start date</a></th>
+                        <th><a ng-click="vm.filterType = 'EndDate'; reverse = !reverse" class="cursor-pointer">End date</a></th>
+                        <th ng-if="identity.isAuthenticated()"></th>
+                        <th ng-if="identity.isAuthenticated()"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="event in vm.events | filter: searchQuery | orderBy : vm.filterType : !reverse">
+                        <td>{{$index + 1}}</td>
+                        <td>{{event.Host}}</td>
+                        <td>{{event.Country}}</td>
+                        <td class="text-center">{{event.Description}}</td>
+                        <td>{{event.StartDate}}</td>
+                        <td>{{event.EndDate}}</td>
+                        <td ng-if="identity.isAuthenticated()"><a class="btn btn-info btn-pill btn-sm"><i class="icon-next"></i>Update</a></td>
+                        <td ng-if="identity.isAuthenticated()"><a class="btn btn-danger btn-pill btn-sm" ng-click="vm.removeEvent(event, $index)">Remove</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

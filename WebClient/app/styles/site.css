@@ -3,8 +3,14 @@
 }
 
 footer {
-	width:100vw;
-	position:absolute;
-	bottom:10px;
-	left:0;
+    width: 100vw;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.btn-pill {
+    border-radius: 200px;
+    height: 30px;
 }

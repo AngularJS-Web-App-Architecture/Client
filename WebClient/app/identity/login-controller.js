@@ -1,7 +1,11 @@
 (function () {
     'use strict';
 
-    function LoginController($scope, $location, notifier, identity, auth) {
+    function LoginController($scope, $location, notifier, identity, auth, VALIDATION) {
+        var vm = this;
+
+        vm.validation = VALIDATION;
+
         $scope.identity = identity;
 
         $scope.showCurrentUserData = function () {
@@ -11,17 +15,11 @@
         $scope.login = function (user, loginForm) {
             if (loginForm.$valid) {
                 auth.login(user).then(function (success) {
-                    if (success) {
-                        notifier.success('Login successful!');
-                        $location.path('/');
-                    }
-                    else {
-                        notifier.error('Username/Password combination is not valid!');
-                    }
+                    notifier.success('Login successful!');
+                    $location.path('/');
+                }, function () {
+                    notifier.error('Username does not exist or password does not match.');
                 });
-            }
-            else {
-                notifier.error('Username and password are required fields!')
             }
         }
 
@@ -40,5 +38,5 @@
     }
 
     angular.module('myApp.controllers')
-        .controller('LoginController', ['$scope', '$location', 'notifier', 'identity', 'auth', LoginController]);
+        .controller('LoginController', ['$scope', '$location', 'notifier', 'identity', 'auth', 'VALIDATION', LoginController]);
 }());

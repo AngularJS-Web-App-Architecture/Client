@@ -94,6 +94,37 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\directives\add-events-directive.html" />
+    <Content Include="app\directives\upcoming-events-directive.html" />
+    <Content Include="app\libs\kendo\css\Black\editor.png" />
+    <Content Include="app\libs\kendo\css\Black\imagebrowser.png" />
+    <Content Include="app\libs\kendo\css\Black\indeterminate.gif" />
+    <Content Include="app\libs\kendo\css\Black\loading-image.gif" />
+    <Content Include="app\libs\kendo\css\Black\loading.gif" />
+    <Content Include="app\libs\kendo\css\Black\loading_2x.gif" />
+    <Content Include="app\libs\kendo\css\Black\markers.png" />
+    <Content Include="app\libs\kendo\css\Black\markers_2x.png" />
+    <Content Include="app\libs\kendo\css\Black\slider-h.gif" />
+    <Content Include="app\libs\kendo\css\Black\slider-v.gif" />
+    <Content Include="app\libs\kendo\css\Black\sprite.png" />
+    <Content Include="app\libs\kendo\css\Black\sprite_2x.png" />
+    <Content Include="app\libs\kendo\css\Black\sprite_kpi.png" />
+    <Content Include="app\libs\kendo\css\Black\sprite_kpi_2x.png" />
+    <Content Include="app\libs\kendo\css\kendo.black.min.css" />
+    <Content Include="app\libs\kendo\css\kendo.common.core.min.css" />
+    <Content Include="app\libs\kendo\css\kendo.common.min.css" />
+    <Content Include="app\libs\kendo\js\kendo.autocomplete.min.js" />
+    <Content Include="app\libs\kendo\js\kendo.calendar.min.js" />
+    <Content Include="app\libs\kendo\js\kendo.datepicker.min.js" />
+    <Content Include="app\libs\kendo\js\kendo.datetimepicker.min.js" />
+    <Content Include="app\libs\kendo\js\kendo.dropdownlist.min.js" />
+    <Content Include="app\libs\kendo\js\kendo.timepicker.min.js" />
+    <Content Include="app\libs\kendo\js\kendo.ui.core.min.js" />
+    <Content Include="app\pages\events\add-events-directive.js" />
+    <Content Include="app\pages\events\events-controller.js" />
+    <Content Include="app\pages\events\events.html" />
+    <Content Include="app\pages\events\smile.ico" />
+    <Content Include="app\pages\events\upcoming-events-directive.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -13,6 +13,7 @@
                         deferred.resolve();
                     }, function (response) {
                         var error = response.data.modelState;
+
                         if (error && error[Object.keys(error)[0]][0]) {
                             error = error[Object.keys(error)[0]][0];
                         }
@@ -27,17 +28,22 @@
             },
             login: function (user) {
                 var deferred = $q.defer();
-                user['grant_type'] = 'password';
-                $http.post(baseServiceUrl + 'Token', 'username=' + user.username + '&password=' + user.password + '&grant_type=password', { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
-                    .then(function (response) {
-                        if (response.data["access_token"]) {
-                            identity.setCurrentUser(response.data);
-                            deferred.resolve(true);
-                        }
-                        else {
-                            deferred.resolve(false);
-                        }
-                    });
+
+                if (user) {
+                    user['grant_type'] = 'password';
+                    $http.post(baseServiceUrl + 'Token', 'username=' + user.username + '&password=' + user.password + '&grant_type=password', { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+                        .then(function (response) {
+                            if (response.data["access_token"]) {
+                                identity.setCurrentUser(response.data);
+                                deferred.resolve(true);
+                            }
+                        }, function (error) {
+                            deferred.reject(true);
+                        });
+                }
+                else {
+                    deferred.reject(true);
+                }
 
                 return deferred.promise;
             },

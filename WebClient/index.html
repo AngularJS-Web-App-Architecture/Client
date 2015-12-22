@@ -9,6 +9,12 @@
     <!-- Bootstrap Core CSS -->
     <link href="app/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
+    <!-- KendoUI Core CSS -->
+    <link href="app/libs/kendo/css/kendo.common.core.min.css" rel="stylesheet" type="text/css" />
+    <link href="app/libs/kendo/css/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="app/libs/kendo/css/kendo.black.min.css" rel="stylesheet" type="text/css" />
+    <link href="app/libs/kendo/css/Black/sprite.png" rel="stylesheet" type="text/css" />
+
     <!-- Toastr Core CSS -->
     <link href="app/libs/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
 
@@ -24,11 +30,13 @@
     <!-- Toastr Core JavaScript -->
     <script src="app/libs/toastr/toastr.min.js"></script>
 
-    <!-- Angular Core JavaScript -->
+    <!-- AngularJS Core JavaScript -->
     <script src="app/libs/angularjs/angular.min.js"></script>
     <script src="app/libs/angularjs/angular-route.min.js"></script>
     <script src="app/libs/angularjs/angular-cookies.min.js"></script>
-    
+
+    <!-- KendoUI Core JavaScript -->
+    <script src="app/libs/kendo/js/kendo.ui.core.min.js"></script>
 </head>
 <body ng-app="myApp" ng-cloak>
     <!-- Navigation -->
@@ -41,18 +49,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Gymnastics Academy</a>
+                <a class="navbar-brand" href="#/">Gymnastics Academy</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#/Academy" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Academy<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Academy<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">Competitions</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#/Events">Events</a></li>
+                            <li><a href="#/Gallery">Gallery</a></li>
                         </ul>
                     </li>
                     <li><a href="#/Home">Home<span class="sr-only">(current)</span></a></li>
@@ -65,38 +71,43 @@
         </div>
     </nav>
 
-    <!-- Angular View -->
+    <!-- AngularJS View -->
     <div ng-view></div>
 
     <!-- Footer -->
-    <footer class="text-center" ng-cloak>
-        <hr />
-        Copyrights:
-        <a href="https://opensource.org/licenses/MIT" target="_blank"><strong>The MIT License (Open source)</strong></a>
-        <br />
-        Powered by:
-        <strong><a href="http://angularjs.org/" target="_blank">AngularJS</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a></strong>
-        <hr />
-    </footer>
-  
-    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.core.min.js"></script>
-    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.calendar.min.js"></script>
-    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.popup.min.js"></script>
-    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.datepicker.min.js"></script>
-    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.timepicker.min.js"></script>
-    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.datetimepicker.min.js"></script>
-    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.angular.min.js"></script>
+    <div style="display: inline-block;">
+        <footer class="text-center" ng-cloak>
+            <hr />
+            <strong>Copyright:</strong>
+            <a href="https://opensource.org/licenses/MIT" target="_blank"><strong>The MIT License (Open source)</strong></a>
+            <br />
+            <strong>Powered by:</strong>
+            <strong><a href="http://angularjs.org/" target="_blank">AngularJS</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a></strong>
+            <hr />
+        </footer>
+    </div>
 
+    <!-- AngularJS Configuration -->
     <script src="app/config/angular-config.js"></script>
 
+    <!-- Common -->
     <script src="app/common/notifier.js"></script>
     <script src="app/common/data.js"></script>
     <script src="app/common/beautiful-date.js"></script>
 
+    <!-- Identity -->
     <script src="app/identity/auth.js"></script>
     <script src="app/identity/authorization.js"></script>
     <script src="app/identity/identity.js"></script>
     <script src="app/identity/login-controller.js"></script>
     <script src="app/identity/register-controller.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/pages/home/home-controller.js"></script>
+    <script src="app/pages/events/events-controller.js"></script>
+
+    <!-- Directives -->
+    <script src="app/pages/events/upcoming-events-directive.js"></script>
+    <script src="app/pages/events/add-events-directive.js"></script>
 </body>
 </html>

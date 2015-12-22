@@ -3,11 +3,7 @@
     var HomeController = function (notifier) {
         var vm = this;
 
-        vm.introduction = "Hello, this is my online coaching system. I would be very pleased to work with you."
-
-        vm.notifySuccess = function () {
-            notifier.success("Yeyy");
-        }
+        vm.smilePath = 'app/pages/events/smile.ico';
     }
 
     angular.module('myApp.controllers')

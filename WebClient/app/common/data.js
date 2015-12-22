@@ -30,7 +30,25 @@
                     defered.resolve(response.data);
                 }, function (error) {
                     error = getErrorMessage(error);
-                    notifier.error(error);
+                    defered.reject(error);
+                });
+
+            return defered.promise;
+        }
+
+        function remove(url, deleteData) {
+            var defered = $q.defer();
+
+            var authHeader = authorization.getAuthorizationHeader();
+
+            $http.delete(baseServiceUrl + url, {
+                headers: authHeader,
+                data: deleteData
+            })
+                .then(function (response) {
+                    defered.resolve(response.data);
+                }, function (error) {
+                    error = getErrorMessage(error);
                     defered.reject(error);
                 });
 
@@ -56,6 +74,7 @@
         return {
             get: get,
             post: post,
+            remove: remove,
             put: put
         };
     }

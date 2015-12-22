@@ -13,7 +13,7 @@
             "onclick": null,
             "showDuration": "300",
             "hideDuration": "1000",
-            "timeOut": "5000",
+            "timeOut": "3000",
             "extendedTimeOut": "1000",
             "showEasing": "swing",
             "hideEasing": "linear",
@@ -27,6 +27,9 @@
             },
             error: function (msg) {
                 toastr.error(msg);
+            },
+            warning: function (msg) {
+                toastr.warning(msg);
             }
         }
     }])
